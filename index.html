@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spotify InfoVis — Tableau de bord</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <h1>Spotify · Tableau de bord</h1>
+      <p class="subtitle">Un même dataset, quatre visualisations coordonnées</p>
+    </div>
+
+    <div class="toolbar">
+      <label class="control">
+        <span>Genre</span>
+        <select id="filter-genre"></select>
+      </label>
+
+      <label class="control">
+        <span>Popularité min. (<b id="filter-pop-val">0</b>)</span>
+        <input id="filter-pop" type="range" min="0" max="100" value="0" step="1" />
+      </label>
+
+      <label class="control">
+        <span>Changer de dataset</span>
+        <input id="dataset-file" type="file" accept=".csv" />
+      </label>
+
+      <span id="status" class="status">Chargement…</span>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="panel">
+      <h2>Coordonnées parallèles <span class="tag">multivarié</span></h2>
+      <div class="panel-body" id="view-parallel"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Treemap / Sunburst <span class="tag">hiérarchie</span></h2>
+      <div class="panel-body" id="view-treemap"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Courbes multiples <span class="tag">temporel</span></h2>
+      <div class="panel-body" id="view-lines"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Heatmap de corrélation <span class="tag">matrice</span></h2>
+      <div class="panel-body" id="view-heatmap"></div>
+    </section>
+
+    <section class="panel panel--full">
+      <h2>Carte des pays d'origine <span class="tag">bonus · location</span></h2>
+      <div class="panel-body" id="view-choropleth"></div>
+    </section>
+  </main>
+
+  <!-- Socle commun -->
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/dataLoader.js"></script>
+  <script src="js/store.js"></script>
+  <!-- Une vue par membre -->
+  <script src="js/views/parallelCoords.js"></script>
+  <script src="js/views/treemap.js"></script>
+  <script src="js/views/lines.js"></script>
+  <script src="js/views/heatmap.js"></script>
+  <script src="js/views/choropleth.js"></script>
+  <!-- Orchestrateur -->
+  <script src="js/main.js"></script>
+</body>
+</html>

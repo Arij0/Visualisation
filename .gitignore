@@ -1,0 +1,24 @@
+# --- Fichiers système ---
+.DS_Store
+Thumbs.db
+
+# --- Éditeurs / IDE ---
+.vscode/
+.idea/
+*.swp
+*~
+
+# --- Node (au cas où quelqu'un installe des paquets) ---
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# --- Logs / temporaires ---
+*.log
+tmp/
+
+# --- Dataset (~7,6 Mo) ---
+# Versionné par défaut pour que la démo tourne après un simple "git clone".
+# Pour garder le dépôt léger, décommenter la ligne suivante (chaque membre
+# devra alors télécharger le CSV et le placer dans data/) :
+# data/spotify_songs.csv
